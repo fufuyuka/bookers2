@@ -1,3 +1,4 @@
+<!-- 動的なヘッダー -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,6 +12,38 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "Home", root_path %> <!-- path後でなおす以下 -->
+        </li>
+        <li>
+          <%= link_to "User", root_path %>
+        </li>
+        <li>
+          <%= link_to "Books", root_path %>
+        </li>
+        <li>
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "Home", root_path %>
+        </li>
+        <li>
+          <%= link_to "About", homes_about_path %>
+        </li>
+        <li>
+          <%= link_to "Sign up", new_user_registration_path %>
+        </li>
+        <li>
+          <%= link_to "Log in", user_session_path %>
+        </li>
+      <% end %>
+    </header>
     <%= yield %>
+    <fotter>
+      <p>CopyRight Infratop.inc</p>
+    </fotter>
   </body>
 </html>
