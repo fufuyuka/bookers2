@@ -13,15 +13,17 @@
 
   <body>
     <header>
+      <%= link_to "Bookers", root_path %>
+      
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Home", root_path %> <!-- path後でなおす以下 -->
+          <%= link_to "Home", root_path %>
         </li>
         <li>
-          <%= link_to "User", root_path %>
+          <%= link_to "User", user_path %>
         </li>
         <li>
-          <%= link_to "Books", root_path %>
+          <%= link_to "Books", books_path %>
         </li>
         <li>
           <%= link_to "Log out", destroy_user_session_path, method: :delete %>
