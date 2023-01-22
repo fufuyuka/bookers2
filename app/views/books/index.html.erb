@@ -1,2 +1,12 @@
-<h1>Books一覧</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Books</h1>
+
+<h4>Title</h4>
+<h4>Opinion</h4>
+
+<% @books.each do |book| %>
+<div>
+  <img src="assets/images/default_image/jpg" alt="デフォルトイメージ">
+  <p><%= book.title %></p>
+  <p><%= book.body %></p>
+</div>
+<% end %>
