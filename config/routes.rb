@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   
   resources :books, only: [:show, :index, :show, :edit]
   resources :users, only: [:index, :show, :edit]
-  resources :homes, only: [:about]
+  get 'homes/about'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
