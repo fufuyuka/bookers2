@@ -1,4 +1,6 @@
 <h1>User info</h1>
-<p>↑含む部分テンプレート？</p>
 
-<h1></h1>
+<%= image_tag @user.get_profile_image(50,50) %>
+<p>name <%= @user.name %></p>
+<p>intoroduction <%= @user.intoroduction %></p>
+
