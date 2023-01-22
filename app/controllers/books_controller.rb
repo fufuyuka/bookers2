@@ -4,7 +4,6 @@ class BooksController < ApplicationController
     @book = Book.new
   end
   
-  # 投稿データ保存
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
@@ -14,6 +13,7 @@ class BooksController < ApplicationController
   
   def index
     @books = Book.all
+    
   end
 
   def show
@@ -24,10 +24,16 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
   
+  def update
+    @book = Book.find(params[:id])
+    @book.update
+    redirect_to book_path(@book)
+  end
+  
   def destroy
     @book = Book.find(params[:id])
-    @post_image.destroy
-    redirect_to books_path
+    @book.destroy
+    redirect_to book_path(@book)
   end
   
   private

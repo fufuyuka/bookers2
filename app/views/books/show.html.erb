@@ -1,11 +1,14 @@
+<!-- このブックのインフォ｜ブックの詳細(自分なら編集ボタン表示) -->
+
 <h1>Book detil</h1>
 
 <div>
-  <img src="assets/images/default_image/jpg" alt="デフォルトイメージ">
-  <p><%= @book.title %></p>
+  <img src="assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <p><%= link_to @book.user.name, user_path(@book.user) %></p>
   <p><%= @book.body %></p>
 </div>
 
-
- <%= link_to "Edit", edit_book_path %>
- <%= link_to "Destroy", books_path %>
+<% if @book.user == current_user %>
+  <%= link_to "Edit", edit_book_path %>
+  <%= link_to "Destroy", book_path, method: :delete %>
+ <% end %>

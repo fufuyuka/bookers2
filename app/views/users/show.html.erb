@@ -4,3 +4,16 @@
 <p>name <%= @user.name %></p>
 <p>intoroduction <%= @user.intoroduction %></p>
 
+<!-- ログイン後の最初のページ　自分インフォ｜自分の投稿一覧 -->
+<h1>Books</h1>
+
+<h4>Title</h4>
+<h4>Opinion</h4>
+
+<% @books.each do |book| %>
+<div>
+  <img src="assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <p><%= link_to book.title, book_path(book) %></p>
+  <p><%= book.body %></p>
+</div>
+<% end %>
