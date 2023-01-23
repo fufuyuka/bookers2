@@ -1,4 +1,5 @@
-
+<%= render 'users/user_info', user: current_user %>
+<%= render 'new_book', newbook: @newbook %>
 <!-- 自分インフォ｜ブック一覧 -->
 
 <h1>Books</h1>
@@ -8,7 +9,7 @@
 
 <% @books.each do |book| %>
 <div>
-  <img src="../../assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <%= image_tag book.user.get_profile_image(100,100) %>
   <p><%= link_to book.user.name, user_path(book.user) %></p>
   <p><%= link_to book.title, book_path(book) %></p>
   <p><%= book.body %></p>

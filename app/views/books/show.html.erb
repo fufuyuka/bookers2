@@ -1,9 +1,11 @@
+<%= render 'users/user_info', user: @book.user %>
+<%= render 'new_book', newbook: @newbook %>
 <!-- :idのユーザーのインフォ｜ブックの詳細(自分なら編集ボタン表示) -->
 
 <h1>Book detil</h1>
 
 <div>
-  <img src="app/assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <%= image_tag @book.user.get_profile_image(100,100) %>
   <p><%= link_to @book.user.name, user_path(@book.user) %></p>
   <p><%= @book.body %></p>
 </div>
@@ -11,4 +13,4 @@
 <% if @book.user == current_user %>
   <%= link_to "Edit", edit_book_path %>
   <%= link_to "Destroy", book_path, method: :delete %>
- <% end %>
+<% end %>

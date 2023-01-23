@@ -1,12 +1,5 @@
-<!-- sidebar部分テンプレート　-->
-
-<h1>User info</h1>
-<%= image_tag @user.get_profile_image(100,100) %>
-<p>name <%= @user.name %></p>
-<p>introduction <%= @user.introduction %></p>
-
+<%= render 'user_info', user: @user %>
 <%= render 'books/new_book', newbook: @newbook %>
-
 <!-- ログイン後の最初のページ　:idのインフォ｜:idの投稿一覧 -->
 <h1>Books</h1>
 
@@ -15,7 +8,7 @@
 
 <% @books.each do |book| %>
 <div>
-  <img src="app/assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <%= image_tag book.user.get_profile_image(100,100) %>
   <p><%= link_to book.title, book_path(book) %></p>
   <p><%= book.body %></p>
 </div>
