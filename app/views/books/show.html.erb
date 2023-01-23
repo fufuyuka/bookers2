@@ -1,9 +1,9 @@
-<!-- このブックのインフォ｜ブックの詳細(自分なら編集ボタン表示) -->
+<!-- :idのユーザーのインフォ｜ブックの詳細(自分なら編集ボタン表示) -->
 
 <h1>Book detil</h1>
 
 <div>
-  <img src="assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <img src="app/assets/images/default_image.jpg" alt="デフォルトイメージ">
   <p><%= link_to @book.user.name, user_path(@book.user) %></p>
   <p><%= @book.body %></p>
 </div>

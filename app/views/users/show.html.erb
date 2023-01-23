@@ -1,10 +1,10 @@
 <h1>User info</h1>
 
-<%= image_tag @user.get_profile_image(50,50) %>
+<%= image_tag @user.get_profile_image(100,100) %>
 <p>name <%= @user.name %></p>
-<p>intoroduction <%= @user.intoroduction %></p>
+<p>introduction <%= @user.introduction %></p>
 
-<!-- ログイン後の最初のページ　自分インフォ｜自分の投稿一覧 -->
+<!-- ログイン後の最初のページ　:idのインフォ｜:idの投稿一覧 -->
 <h1>Books</h1>
 
 <h4>Title</h4>
@@ -12,8 +12,10 @@
 
 <% @books.each do |book| %>
 <div>
-  <img src="assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <img src="app/assets/images/default_image.jpg" alt="デフォルトイメージ">
   <p><%= link_to book.title, book_path(book) %></p>
   <p><%= book.body %></p>
 </div>
 <% end %>
+
+<p><%= link_to "プロフィール編集", edit_user_path %></p>
