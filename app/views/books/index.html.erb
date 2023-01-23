@@ -1,3 +1,4 @@
+
 <!-- 自分インフォ｜ブック一覧 -->
 
 <h1>Books</h1>
@@ -7,8 +8,8 @@
 
 <% @books.each do |book| %>
 <div>
-  <img src="app/assets/images/default_image.jpg" alt="デフォルトイメージ">
-  <p><%= link_to book.user.name, user_path(book.user) %></p> <!-- リンク先修正未 -->
+  <img src="../../assets/images/default_image.jpg" alt="デフォルトイメージ">
+  <p><%= link_to book.user.name, user_path(book.user) %></p>
   <p><%= link_to book.title, book_path(book) %></p>
   <p><%= book.body %></p>
 </div>
