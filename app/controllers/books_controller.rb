@@ -36,7 +36,7 @@ class BooksController < ApplicationController
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    redirect_to book_path(@book)
+    redirect_to books_path
   end
   
   private
@@ -46,8 +46,8 @@ class BooksController < ApplicationController
     end
   
     def is_matching_login_user
-      user_id = params[:id].to_i
-      unless user_id == current_user.id
+      book = Book.find(params[:id])
+      unless book.user_id == current_user.id
         redirect_to user_path(current_user)
       end
     end

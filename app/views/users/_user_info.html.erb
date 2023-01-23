@@ -1,6 +1,15 @@
-<h1>User info</h1>
+<h2>User info</h2>
 <%= image_tag user.get_profile_image(100,100) %>
-<p>name <%= user.name %></p>
-<p>introduction <%= user.introduction %></p>
-
-<%= link_to "設定", edit_user_path(user) %>
+<table>
+  <tr>
+    <th>name</th>
+    <th><%= user.name %></th>
+  </tr>
+  <tr>
+    <th>introduction</th>
+    <th><%= user.introduction %></th>
+  </tr>
+</table>
+<div>
+  <%= link_to "設定", edit_user_path(user) %>
+</div>

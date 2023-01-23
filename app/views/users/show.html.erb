@@ -1,17 +1,23 @@
 <%= render 'user_info', user: @user %>
 <%= render 'books/new_book', newbook: @newbook %>
 <!-- ログイン後の最初のページ　:idのインフォ｜:idの投稿一覧 -->
-<h1>Books</h1>
-
-<h4>Title</h4>
-<h4>Opinion</h4>
-
-<% @books.each do |book| %>
-<div>
-  <%= image_tag book.user.get_profile_image(100,100) %>
-  <p><%= link_to book.title, book_path(book) %></p>
-  <p><%= book.body %></p>
-</div>
-<% end %>
-
-<p><%= link_to "プロフィール編集", edit_user_path %></p>
+<h2>Books</h2>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <% @books.each do |book| %>
+      <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+      <td><%= link_to book.title, book_path(book) %></td>
+      <td><%= book.body %></th>
+    <% end %>
+    </tr>
+  </tbody>
+</table>
