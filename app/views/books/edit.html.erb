@@ -1,6 +1,15 @@
 <!-- 自分の本の編集ページ -->
 <h1>Editing Book</h1>
 
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>error prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_with model: @book do |f| %>
   <div>
     <label>Title</label><br />
