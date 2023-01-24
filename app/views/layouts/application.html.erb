@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,80 +10,69 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
-    <header>
-      
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="navbar-brand py-1 mr-3">
-          <spen><%= link_to "Bookers", root_path, class:"nav-link text-light" %></spen>
-        </div>
-  
-        <div class="container">
-          <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
-          
-            <li>
-              <%= link_to user_path(current_user), class:"nav-link text-light" do %>
-                <i class="fas fa-home text-light"></i>Home
-              <% end %>
-            </li>
-            
-            <li>
-              <%= link_to users_path, class:"nav-link text-light" do %>
-                <i class="fas fa-users text-light text-light"></i>Users
-              <% end %>
-            </li>
-            
-            <li>
-              <%= link_to books_path, class:"nav-link text-light" do %>
-                <i class="fas fa-book-open text-light"></i>Books
+  <body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/" %><spen>Bookers</spen></a>
+      </div>
+      <div>
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to user_path(current_user), class:"nav-link text-light" do %>
+              <i class="fas fa-home"></i>Home
             <% end %>
-            </li>
-            
-            <li>
-              <%= link_to destroy_user_session_path, class:"nav-link text-light", method: :delete do %>
-                <i class="fas fa-sign-out-alt text-light"></i>Log out
-              <% end %>
-            </li>
-            
+          </li>
+          <li>
+            <%= link_to users_path, class:"nav-link text-light" do %>
+              <i class="fas fa-users"></i>Users
+            <% end %>
+          </li>
+          <li>
+            <%= link_to books_path, class:"nav-link text-light" do %>
+              <i class="fas fa-book-open"></i>Books
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, class:"nav-link text-light", method: :delete do %>
+              <i class="fas fa-sign-out-alt"></i>Log out
+            <% end %>
+          </li>
           <% else %>
-          
-            <li>
-              <%= link_to root_path, class:"nav-link text-light" do %>
-                <i class="fas fa-home text-light"></i>Home
-              <% end %>
-            </li>
-            
-            <li>
-              <%= link_to homes_about_path, class:"nav-link text-light" do %>
-                <i class="fas fa-link text-light"></i>About
-              <% end %>
-            </li>
-            
-            <li>
-              <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
-                <i class="fas fa-user-plus text-light"></i>Sign up
-              <% end %>
-            </li>
-            
-            <li>
-              <%= link_to new_user_session_path, class:"nav-link text-light" do %>
-                <i class="fas fa-sign-in-alt text-light"></i>Log in
-              <% end %>
-            </li>
-            
-          <% end %>
-          </ul>
-        </div>
-      </nav>
-    </header>
-    
-    <div>
-      <%= flash[:notice] %>
-    </div>
+          <li>
+            <%= link_to root_path, class:"nav-link text-light" do %>
+              <i class="fas fa-home"></i>Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to homes_about_path, class:"nav-link text-light" do %>
+              <i class="fas fa-link"></i>About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
+              <i class="fas fa-user-plus"></i>Sign up
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_user_session_path, class:"nav-link text-light" do %>
+              <i class="fas fa-sign-in-alt"></i>Log in
+            <% end %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <main>
+    <p id="notice"><%= flash[:notice] %></p>
     
     <%= yield %>
     
+  </main>
+  
     <fotter>
       <div class="container mt-5">
         <div class="row">
@@ -94,5 +82,6 @@
         </div>
       </div>
     </fotter>
+    
   </body>
 </html>
