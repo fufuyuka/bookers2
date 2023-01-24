@@ -1,4 +1,4 @@
-<!-- 動的なヘッダーとフッター -->
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -34,6 +34,10 @@
         </div>
       </nav>
     </header>
+    
+    <div>
+      <%= flash[:notice] %>
+    </div>
     
     <%= yield %>
     
