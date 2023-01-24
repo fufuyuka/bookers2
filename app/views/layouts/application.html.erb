@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,65 +11,68 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column vh-100">
     <header>
-      <nav>
-        <div>
-          <spen><%= link_to "Bookers", root_path %></spen>
+      
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar-brand py-1 mr-3">
+          <spen><%= link_to "Bookers", root_path, class:"nav-link text-light" %></spen>
         </div>
-        <div>
-          <ul>
+  
+        <div class="container">
+          <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
+          
             <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="fas fa-home"></i>
+              <%= link_to user_path(current_user), class:"nav-link text-light" do %>
+                <i class="fas fa-home text-light"></i>Home
               <% end %>
-              <%= link_to "Home", user_path(current_user) %>
             </li>
+            
             <li>
-              <%= link_to users_path do %>
-                <i class="fas fa-users"></i>
+              <%= link_to users_path, class:"nav-link text-light" do %>
+                <i class="fas fa-users text-light text-light"></i>Users
               <% end %>
-              <%= link_to "Users", users_path  %>
             </li>
+            
             <li>
-              <%= link_to books_path do %>
-                <i class="fas fa-book-open"></i>
-              <% end %>
-              <%= link_to "Books", books_path %>
+              <%= link_to books_path, class:"nav-link text-light" do %>
+                <i class="fas fa-book-open text-light"></i>Books
+            <% end %>
             </li>
+            
             <li>
-              <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i>
+              <%= link_to destroy_user_session_path, class:"nav-link text-light", method: :delete do %>
+                <i class="fas fa-sign-out-alt text-light"></i>Log out
               <% end %>
-             <%= link_to "Log out", destroy_user_session_path, method: :delete %>
             </li>
             
           <% else %>
+          
             <li>
-              <%= link_to user_path(current_user) do %>
-                <i class="fas fa-home"></i>
+              <%= link_to root_path, class:"nav-link text-light" do %>
+                <i class="fas fa-home text-light"></i>Home
               <% end %>
-              <%= link_to "Home", user_path(current_user) %>
             </li>
+            
             <li>
-              <%= link_to homes_about_path do %>
-                <i class="fas fa-link"></i>
+              <%= link_to homes_about_path, class:"nav-link text-light" do %>
+                <i class="fas fa-link text-light"></i>About
               <% end %>
-              <%= link_to "About", homes_about_path %>
             </li>
+            
             <li>
-              <%= link_to new_user_registration_path do %>
-                <i class="fas fa-user-plus"></i>
+              <%= link_to new_user_registration_path, class:"nav-link text-light" do %>
+                <i class="fas fa-user-plus text-light"></i>Sign up
               <% end %>
-              <%= link_to "Sign up", new_user_registration_path %>
             </li>
+            
             <li>
-              <%= link_to new_user_session_path do %>
-                <i class="fas fa-sign-in-alt"></i>
+              <%= link_to new_user_session_path, class:"nav-link text-light" do %>
+                <i class="fas fa-sign-in-alt text-light"></i>Log in
               <% end %>
-              <%= link_to "Log in", new_user_session_path %>
             </li>
+            
           <% end %>
           </ul>
         </div>
@@ -83,8 +86,12 @@
     <%= yield %>
     
     <fotter>
-      <div>
-        <p>CopyRight Infratop.inc</p>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
       </div>
     </fotter>
   </body>
