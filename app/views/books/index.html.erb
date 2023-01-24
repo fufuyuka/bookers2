@@ -1,4 +1,11 @@
-<!-- bookのエラーメッセージ　-->
+<% if @newbook.errors.any? %>
+  <%= @newbook.errors.count %>error prohibited this obj from being saved:
+  <ul>
+    <% @newbook.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <%= render 'users/user_info', user: current_user, newbook: @newbook %>
 
